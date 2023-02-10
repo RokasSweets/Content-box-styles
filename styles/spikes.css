@@ -1,0 +1,30 @@
+.spikes {
+    --spike-color: var(--body-bg);
+    --spike-width: 50px;
+    --spike-height: 10px;
+    position: relative;
+    color: black;
+    background: linear-gradient(to right, #fdc830, #f37335);
+}
+
+.spikes::before,
+.spikes::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: var(--spike-height);
+    background: var(--spike-color);
+    -webkit-mask-image: url(../assets/triangle.svg);
+    -webkit-mask-size: var(--spike-width) var(--spike-height);
+    mask-image: url(../assets/triangle.svg);
+    mask-size: var(--spike-width) var(--spike-height);
+}
+
+.spikes::before {
+    top: 0;
+}
+
+.spikes::after {
+    bottom: 0;
+    transform: rotate(.5turn);
+}
